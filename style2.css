@@ -1,0 +1,17 @@
+.logo{
+    max-width: 100px;
+}
+
+.header{
+    background: #00000079;
+    border-bottom: 2px solid #000000b9;
+
+}
+.header .nav_link{
+    font-family: 'Exo', sans-serif;
+    font-size: 1em;
+}
+.header .navbar-toggler{
+    color: #fff;
+    font-size: 2em;
+}

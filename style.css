@@ -1,0 +1,464 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    user-select: none;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+   
+
+}
+html{
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5px;
+}
+
+html::-webkit-scrollbar{
+    width: 10px;
+}
+
+body{
+    background-color:white;
+}
+input,
+button{
+    border: none;
+    outline: none;
+}
+.search{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color:blue;
+    backdrop-filter: blue(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8rem 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+
+}
+.search_close{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.15rem;
+    color:blue;
+    cursor: pointer;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+    transition: 0.5s ease;
+}
+.nav{
+    height:3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+}
+.container{
+    max-width: 1120px;
+    margin-right: 1.5rem;
+}
+.nav_logo img{
+    width: 100px;  
+}
+    
+.nav-actions{
+    display: flex;
+    align-items: center;
+    column-gap: 5rem;
+}
+.nav_search,
+.nav_close,
+.nav_toggle{
+    font-size: 1.25rem;
+    color: white;
+    transition: color .4s;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1023px){
+    .nav_menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color:hsl(230, 100%, 97%);
+        box-shadow:0 8px 16px hsla(231, 87%, 43%, 0.878);
+        width: 100%;
+        padding-block: 4.5rem 4rem;
+        transition: top.4s;
+
+    }
+}
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    text-align: center;
+}
+.nav_link{
+    color: white;
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+.nav_link::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color:gold;
+    bottom: -3px;
+    left: 0;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform .3s ease-in-out;
+
+}
+.nav_link:hover::before{
+    transform-origin: left;
+    transform: scale(1);
+}
+.nav_link:hover{
+ color:gold
+}
+.nav_close{
+    position: absolute;
+    top: 1.15rem;
+    right: 1.5rem;
+
+}
+.show-menu{
+    top: 0;
+}
+
+.search_form{
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: hsl(230, 100%, 97%);
+    box-shadow: 0 8px 32px hsla(230,75%,15%, .2);
+    padding-inline: 1rem;
+    border-radius: .5rem;
+    transform: translateY(-1rem);
+    transition: transform .4s;
+}  
+.search_icon{
+    font-size: 1.25rem;
+
+}
+.search_input{
+    width: 100%;
+    padding-block: 1rem;
+    background-color: hsl(230, 100%, 97%);
+    color: hsl(230, 12%, 40%);
+}
+.search_input::placeholder{
+    color: hsl(230, 12%, 40%);
+}
+.show-search{
+    opacity: 1;
+    pointer-events: initial;
+}  
+.show-search .search_form{
+    transform: translateY(0);
+}
+header.sticky{
+    box-shadow: white 0px 4px  12px;
+    background-color: #000000a2;
+}
+    
+
+@media screen and (min-width: 576px){
+    .search{
+        padding-top: 15rem;
+    }
+    .search_form{
+        max-width: 450px;
+        margin-inline: auto;
+    }
+    .search_close{
+        width: max-content;
+        top: 5rem;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        font-size: 2rem;
+
+    }
+}
+@media screen and (min-width :1023px){
+    .nav{
+        height: 5.5rem;
+        column-gap: 3rem;
+    }
+    .nav_close,
+    .nav_toggle{
+        display: none;
+    }
+    .nav_menu{
+        margin-left: auto
+    }
+    .nav_list{
+        flex-direction: row;
+        column-gap: 2rem;
+
+    }
+    .nav_close,
+    .nav_toggle{
+        display: none;
+    }
+    .nav_menu{
+        margin-left: auto;
+    }
+    .nav_list{
+        flex-direction: row;
+        column-gap: 2rem;
+    }
+}
+    
+@media screen and (min-width: 1150px){
+    .container{
+        margin-inline: auto;
+    }
+}
+/*ANASAYFA BAŞLANGIÇ*/
+    .home{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: none;
+        background-image: linear-gradient(rgba(0,0,0, 0.1), rgba(0,0,0, 0.5)), url(../images/gezegenler-5881852_1920.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all .50s ease; 
+    }
+.home .content{
+    text-align: center;
+    padding-top: 200px;
+
+}
+.home .content h2{
+    font-size: 15px;
+    color:bisque;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-shadow: 0px 1px 0px blanchedalmond;
+}
+ .home .content h1{
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 800;
+    color: bisque;
+    text-shadow: 1px 1px 3px hsl(230), hsl(230, 100%, 97%);
+}
+
+.change-content::after{
+    content: " ";
+    animation: changetext 10s infinite linear;
+    color:lightblue;
+    text-shadow: 1px 1px 1px hsl(230, 100%, 97%);
+    font-weight: bold;
+}
+
+@keyframes changetext{
+    0%{
+        content: "Baykar Bayraktar Akıncı";
+    }
+    10%{
+        content: "Baykar Bayraktar DİHA";
+    }
+    15%{
+        content: "Baykar Bayraktar Mini İHA";
+    }
+    20%{
+        content: "Baykar Bayraktar TB2";
+    }
+    25%{
+        content: "Baykar Bayraktar TB3";
+    }
+    30%{
+        content: "Havelsan Baha";
+    }
+    35%{
+        content: "STM Alpagu";
+    }
+    40%{
+        content: "STM Alpagut";
+    }
+    45%{
+        content: "STM Boyga";
+    }
+    50%{
+        content: "STM Kargu";
+    }
+    55%{
+        content: "STM Togan";
+    }
+    60%{
+        content: "TUSAŞ Anka";
+    }
+    65%{
+        content: "TUSAŞ Anka-3";
+    }
+    70%{
+        content: "TUSAŞ Aksungur";
+    }
+    90%{
+        content: "TUSAŞ Şimşek";
+    }
+    100%{
+        content: "BAYKAR Bayraktar Kızılelma";
+    }
+} 
+.content p{
+    color:gold;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.button{
+    padding: 0.5rem 1.5rem;
+    margin-top: 20px;
+    border: 2px solid hsl(230, 100%, 97%);
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: .5s;
+    z-index: 1;
+    color: hsl(230, 100%, 97%);
+    cursor: pointer;
+}
+.button::before{
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(43deg);
+    background-color:lightblue;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}  
+.button:hover::before{
+    width: 105%;
+
+}
+.button:hover{
+    color:hsl(230, 100%, 97%);
+}
+@media(max-width:1330px){
+    .home{
+        background-position: 50%;
+    }
+}
+#HAKKIMIZDA{
+    background-color:gainsboro;
+    padding: 50px;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+h3{
+
+    font-size: 55px;
+    color: midnightblue;
+    text-shadow: 0px 1px 1px;
+    font-weight: 600;
+
+}
+#container{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+}
+#sol{
+  
+    font-size: 30px;
+    width: 400px;
+    color: midnightblue;
+}
+#h5sol{
+    line-height: 1.6;
+    font-size: 22px;
+    font-weight: 600px;
+}
+#hsol,
+#sag{
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+}
+span{
+    font-size: 50px;
+    margin-right: 7px;
+    line-height: 42px;
+    color:midnightblue;
+    font-weight: 600;
+    float: left;
+}
+#sag{
+    color: midnightblue;
+    text-align: justify;
+}
+#pson{
+    color:blue;
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+@media screen and (min-width: 1150px){
+    .container{
+        margin-inline: auto;
+    }
+}
+
+/*ANASAYFA BİTİŞ*/
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+  
+  .iki-yana-yasla{
+    text-align: justify;
+  }
+
+  #akinci{
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
